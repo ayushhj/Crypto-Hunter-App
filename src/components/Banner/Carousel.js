@@ -1,10 +1,11 @@
 import { makeStyles } from "@material-ui/core";
-import axios from "axois";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
+import { numberWithCommas } from "../CoinsTable";
 
 
 const Carousel = () => {
@@ -65,8 +66,9 @@ const Carousel = () => {
             {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
-        <span style={{ fontSize: 22, fontWeight: 500 }}>
-          {/* {symbol} {numberWithCommas(coin?.current_price.toFixed(2))} */}
+        <span style={{ fontSize: 22, fontWeight: 500 ,marginBottom: 20  }}>
+          {symbol}
+          {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </Link>
     );
